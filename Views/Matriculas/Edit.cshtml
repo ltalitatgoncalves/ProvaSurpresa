@@ -1,0 +1,35 @@
+@model prova_surpresa_mvc.Models.Matricula
+
+<h2>Editar Matrícula</h2>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="AlunoId" class="control-label">Aluno</label>
+        <select asp-for="AlunoId" class="form-control" asp-items="ViewBag.Alunos"></select>
+        <span asp-validation-for="AlunoId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CursoId" class="control-label">Curso</label>
+        <select asp-for="CursoId" class="form-control" asp-items="ViewBag.Cursos"></select>
+        <span asp-validation-for="CursoId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataMatricula" class="control-label">Data da Matrícula</label>
+        <input asp-for="DataMatricula" class="form-control" type="date" />
+        <span asp-validation-for="DataMatricula" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status" class="control-label">Status</label>
+        <select asp-for="Status" class="form-control">
+            <option>Ativa</option>
+            <option>Concluída</option>
+            <option>Cancelada</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="MatriculaId" />
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-success" />
+        <a asp-action="index" class="btn btn-primary">Voltar</a>
+    </div>
+</form>

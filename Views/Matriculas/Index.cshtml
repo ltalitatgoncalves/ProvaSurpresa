@@ -1,0 +1,36 @@
+@model IEnumerable<prova_surpresa_mvc.Models.Matricula>
+
+    <h2>Lista de Matrículas</h2>
+    <p>
+
+        <a asp-action="Create" class="btn btn-success">Nova Matrícula</a>
+
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>Curso</th>
+                <th>Data da Matrícula</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+    {
+            <tr>
+                <td>@item.Aluno.Nome</td>
+                <td>@item.Curso.Titulo</td>
+                <td>@item.DataMatricula.ToShortDateString()</td>
+                <td>@item.Status</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.MatriculaId })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Details", new { id = item.MatriculaId })" class="btn btn-info">Detalhes</a>
+                    <a href="@Url.Action("Delete", new { id = item.MatriculaId })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>

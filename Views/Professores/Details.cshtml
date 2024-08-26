@@ -1,0 +1,25 @@
+@model prova_surpresa_mvc.Models.Professor
+
+<h2>Detalhes do Professor</h2>
+<div>
+    <h4>Professor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nome
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Nome
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Email
+        </dd>
+    </dl>
+    <p>
+        <a href="@Url.Action("Edit", new { id = Model.ProfessorId })" class="btn btn-warning">Editar</a>
+        <a asp-action="index" class="btn btn-primary">Voltar</a>
+    </p>
+</div>

@@ -1,0 +1,32 @@
+@model IEnumerable<prova_surpresa_mvc.Models.Professor>
+
+    <h2>Lista de Professores</h2>
+    <p>
+
+        <a asp-action="Create"  class="btn btn-success">Novo Professor</a>
+
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+    {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.Email</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ProfessorId })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Details", new { id = item.ProfessorId })" class="btn btn-info">Detalhes</a>
+                    <a href="@Url.Action("Delete", new { id = item.ProfessorId })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
